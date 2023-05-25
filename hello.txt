@@ -1,1 +1,2 @@
 hello
+added a new line to test git functionality

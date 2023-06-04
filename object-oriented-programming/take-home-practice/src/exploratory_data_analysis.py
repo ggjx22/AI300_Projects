@@ -16,6 +16,10 @@ class ExploreDataAnalysis:
     def check_any_missing(self, data):
         return data.isnull().sum()
     
+    # method that returns a list of column names containing missing data
+    def get_missing_names(self, data):
+        return data.columns[data.isnull().any()]
+    
 
 path = 'object-oriented-programming/take-home-practice/data/loan_prediction.csv'
 
@@ -32,5 +36,8 @@ assert eda.get_dataset_shape(df) == (614,13)
 
 # check any missing data
 print(eda.check_any_missing(df))
+
+# check names of column with missing data
+print(eda.get_missing_names(df))
 
 print('All test passed.')

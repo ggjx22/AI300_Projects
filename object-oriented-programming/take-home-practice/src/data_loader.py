@@ -14,6 +14,10 @@ class DataLoader:
         data = pd.read_csv(self.path_to_data)
         print(f'Data has been sucessfully loaded from {self.path_to_data}')
         return data
+    
+    # method that checks shape of the data set
+    def get_dataset_shape(self, data):
+        return data.shape
         
 ### test development ###
 path = 'object-oriented-programming/take-home-practice/data/loan_prediction.csv' # relative path to csv file
@@ -25,6 +29,10 @@ assert data.path_to_data == path
 # checks if pandas dataframe has been loaded
 df = data.load_data()
 assert isinstance(df, pd.DataFrame)
+
+# checks size of dataframe
+print(data.get_dataset_shape(df))
+assert data.get_dataset_shape(df) == (614,13)
 
 print('All test passed.')
 

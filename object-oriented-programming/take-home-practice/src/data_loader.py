@@ -18,7 +18,20 @@ class DataLoader:
     # method that checks shape of the data set
     def get_dataset_shape(self, data):
         return data.shape
-        
+    
+    # method that checks for missing data in data set
+    def check_any_missing(self, data):
+        return data.isnull().sum()
+    
+    # method that splits the data into predictors (features) being X and target being y
+    def split_data(self, data):
+        X = data.drop('Loan_Status', axis=1)
+        y = data['Loan_Status']
+        return X, y
+
+
+# Uncomment test cases below once class is built
+
 ### test development ###
 path = 'object-oriented-programming/take-home-practice/data/loan_prediction.csv' # relative path to csv file
 
@@ -30,9 +43,16 @@ assert data.path_to_data == path
 df = data.load_data()
 assert isinstance(df, pd.DataFrame)
 
+# check any missing data
+print(data.check_any_missing(df))
+
 # checks size of dataframe
 print(data.get_dataset_shape(df))
 assert data.get_dataset_shape(df) == (614,13)
 
-print('All test passed.')
+# check if dataset is split succesfully
+X, y = data.split_data(df)
+print(X)
+print(y)
 
+print('All test passed.')

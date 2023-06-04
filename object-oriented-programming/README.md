@@ -1,0 +1,1 @@
+This directory serves as a working space for the practice of object-oriented programming.

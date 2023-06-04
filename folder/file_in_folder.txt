@@ -1,2 +1,0 @@
-pull this text file
-git pull works, push back to remote

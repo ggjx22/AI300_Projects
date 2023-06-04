@@ -24,7 +24,7 @@ assert data.path_to_data == path
 
 # checks if pandas dataframe has been loaded
 df = data.load_data()
-print(df)
+assert isinstance(df, pd.DataFrame)
 
 print('All test passed.')
 
